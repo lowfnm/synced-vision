@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Checkbox from '@mui/material/Checkbox';
 
 export const Content = styled.li`
   padding: 10px;
@@ -12,6 +13,13 @@ export const Content = styled.li`
   div {
     display: flex;
     align-items: center;
+    gap: 10px;
+  }
+`;
+
+export const CustomCheckBox = styled(Checkbox)`
+  && {
+    padding: 0;
   }
 `;
 

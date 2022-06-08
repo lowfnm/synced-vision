@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 import { Button as MuiButton, Input as MuiInput } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 export const Content = styled.div`
   display: flex;
   gap: 10px;
+  width: 350px;
 `;
 
 export const Input = styled(MuiInput)`
+  flex: 1;
+
   && {
     padding: 10px;
     border: 1px solid ${({ theme }) => theme.palette.common.grey};
@@ -16,7 +18,8 @@ export const Input = styled(MuiInput)`
 
     &::after,
     &:before {
-      border: none;
+      width: 99%;
+      margin: 0 auto;
     }
   }
 `;
@@ -47,13 +50,5 @@ export const ErrorMessage = styled.div`
 
   span {
     color: red;
-  }
-`;
-
-export const CustomErrorIcon = styled(ErrorOutlineIcon)`
-  && {
-    width: 20px;
-    height: 20px;
-    fill: red;
   }
 `;

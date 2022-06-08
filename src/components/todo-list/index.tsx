@@ -1,20 +1,18 @@
-// import { FC } from 'react';
 import { useSelector } from 'react-redux';
+import Todo from '../../common/todo';
 
-import Todo from 'src/common/todo';
 import * as S from './style';
-// import { TodoListProps, TodoProps } from 'src/globalTypes';
+import { TodoProps } from '../../interfaces';
 
 const TodoList = () => {
-  // @ts-ignore
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state: any) => state.todos.todos);
 
-  console.log(todos);
   return (
     <S.Content>
-      {todos.map((todo: any) => {
-        return <Todo key={todo.id} {...todo} />;
-      })}
+      {todos?.map((todo: JSX.IntrinsicAttributes & TodoProps) => (
+        <Todo key={todo.id} {...todo} />
+      ))}
+      {todos.length >= 1 && <h2>Done</h2>}
     </S.Content>
   );
 };

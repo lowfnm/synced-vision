@@ -6,6 +6,10 @@ const theme = {
   palette,
 };
 
+// interFace ThemeProps = {
+//   children: ReactNode,
+// }
+
 const ThemeConfig = (props) => {
   const { children } = props;
 
