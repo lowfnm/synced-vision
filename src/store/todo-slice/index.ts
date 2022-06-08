@@ -1,16 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
+import { TodoProps } from '../../interfaces';
 
 const todoSlice = createSlice({
   name: 'todos',
   initialState: {
-    todos: [],
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    todos: <TodoProps[]>(<unknown>[]),
   },
   reducers: {
     addTodo(state, action) {
       state.todos.push({
         id: uuidv4(),
-        text: action.payload.text,
+        text: action.payload,
         isCompleted: false,
       });
     },
@@ -18,7 +20,7 @@ const todoSlice = createSlice({
       const toggledTodo = state.todos.find(
         (todo) => todo.id === action.payload.id
       );
-      toggledTodo.isCompleted = !toggledTodo.isCompleted;
+      toggledTodo!.isCompleted = !toggledTodo!.isCompleted;
     },
     removeTodo(state, action) {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);

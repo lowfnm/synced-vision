@@ -3,7 +3,3 @@ export interface TodoProps {
   text: string;
   isCompleted: boolean;
 }
-
-export interface TodoListProps {
-  todos?: TodoProps[];
-}

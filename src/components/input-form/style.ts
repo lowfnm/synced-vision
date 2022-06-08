@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { Button as MuiButton, Input as MuiInput } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import ErrorIcon from '@mui/icons-material/Error';
 
-export const Content = styled.div`
+export const Content = styled.form`
   display: flex;
   gap: 10px;
   width: 350px;
@@ -45,10 +46,10 @@ export const CustomAddIcon = styled(AddIcon)`
 export const ErrorMessage = styled.div`
   margin-top: 5px;
   display: flex;
-  align-items: center;
   gap: 5px;
 
   span {
-    color: red;
+    color: ${({ theme }) => theme.palette.common.red};
+    font-weight: bold;
   }
 `;

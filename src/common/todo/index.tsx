@@ -1,12 +1,13 @@
-// import { FC } from 'react';
-
-import * as S from './style';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { removeTodo, toggleComplete } from '../../store/todo-slice';
 import { date } from '../../helpers/date';
-// import { TodoProps } from '../../interfaces';
+import { TodoProps } from '../../interfaces';
 
-const Todo = (props) => {
+import * as S from './style';
+
+const Todo: FC<TodoProps> = (props) => {
   const { id, text, isCompleted } = props;
   const dispatch = useDispatch();
 

@@ -1,19 +1,39 @@
 import { useSelector } from 'react-redux';
+
+import { TodoProps } from '../../interfaces';
 import Todo from '../../common/todo';
 
 import * as S from './style';
-import { TodoProps } from '../../interfaces';
 
 const TodoList = () => {
   const todos = useSelector((state: any) => state.todos.todos);
 
+  const checkedTodo = todos.filter(
+    (todo: JSX.IntrinsicAttributes & TodoProps) => todo?.isCompleted && todo
+  );
+
+  const unCheckedTodo = todos.filter(
+    (todo: JSX.IntrinsicAttributes & TodoProps) => !todo?.isCompleted && todo
+  );
+
   return (
-    <S.Content>
-      {todos?.map((todo: JSX.IntrinsicAttributes & TodoProps) => (
-        <Todo key={todo.id} {...todo} />
-      ))}
-      {todos.length >= 1 && <h2>Done</h2>}
-    </S.Content>
+    <>
+      {todos.length >= 1 && (
+        <S.Container>
+          <ul>
+            {unCheckedTodo?.map((todo: JSX.IntrinsicAttributes & TodoProps) => (
+              <Todo key={todo.id} {...todo} />
+            ))}
+          </ul>
+          <S.Title>Done</S.Title>
+          <ul>
+            {checkedTodo?.map((todo: JSX.IntrinsicAttributes & TodoProps) => (
+              <Todo key={todo.id} {...todo} />
+            ))}
+          </ul>
+        </S.Container>
+      )}
+    </>
   );
 };
 

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const Content = styled.ul`
+export const Container = styled.div`
   margin-top: 10px;
-  max-width: 350px;
-  width: 100%;
+  width: 350px;
+`;
 
-  h2 {
-    margin-top: 15px;
-  }
+export const Title = styled.h2`
+  margin-top: 10px;
 `;

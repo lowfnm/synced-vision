@@ -1,16 +1,17 @@
 import { ThemeProvider } from 'styled-components';
 import palette from './palette';
 import GlobalStyles from './globalStyles';
+import React, { FC } from 'react';
 
 const theme = {
   palette,
 };
 
-// interFace ThemeProps = {
-//   children: ReactNode,
-// }
+interface ThemeConfigProps {
+  children: React.ReactNode;
+}
 
-const ThemeConfig = (props) => {
+const ThemeConfig: FC<ThemeConfigProps> = (props) => {
   const { children } = props;
 
   return (
